@@ -136,7 +136,10 @@ if (isDev) {
   app.set('views', 'web/')
   app.use(express.static('web'))
 } else {
-  app.set('views', 'static')
+  if (!process.env.VERCEL) {
+    app.use(express.static('public'))
+  }
+  app.set('views', '../static')
 }
 
 app.engine(
