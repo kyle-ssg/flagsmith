@@ -136,7 +136,7 @@ if (isDev) {
   app.set('views', 'web/')
   app.use(express.static('web'))
 } else {
-  app.use(express.static('static'))
+  app.set('views', 'public/static')
 }
 
 app.engine(
