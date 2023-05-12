@@ -338,7 +338,7 @@ const HomePage = class extends React.Component {
                                               tabIndex={-1}
                                               type='button'
                                             >
-                                              Forgot password??
+                                              Forgot password?
                                             </ButtonLink>
                                           </Link>
                                         )
