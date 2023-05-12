@@ -139,7 +139,7 @@ if (isDev) {
   if (!process.env.VERCEL) {
     app.use(express.static('public'))
   }
-  app.set('views', 'public/static')
+  app.set('views', 'static')
 }
 
 app.engine(
