@@ -234,7 +234,7 @@ app.post('/api/event', (req, res) => {
 // Catch all to render index template
 app.get('/', (req, res) => {
   const linkedin = process.env.LINKEDIN || ''
-  childProcess.execSync("ls")
+  console.log(childProcess.execSync("ls"))
   return res.render('index', {
     isDev,
     linkedin,
