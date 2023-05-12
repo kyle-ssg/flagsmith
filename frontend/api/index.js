@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars')
 const express = require('express')
 const bodyParser = require('body-parser')
 const spm = require('./middleware/single-page-middleware')
-
+const childProcess = require("child_process")
 const app = express()
 
 const SLACK_TOKEN = process.env.SLACK_TOKEN
@@ -234,6 +234,7 @@ app.post('/api/event', (req, res) => {
 // Catch all to render index template
 app.get('/', (req, res) => {
   const linkedin = process.env.LINKEDIN || ''
+  childProcess.execSync("ls")
   return res.render('index', {
     isDev,
     linkedin,
