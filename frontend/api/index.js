@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars')
 const express = require('express')
 const bodyParser = require('body-parser')
 const spm = require('./middleware/single-page-middleware')
-const childProcess = require("child_process")
+
 const app = express()
 
 const SLACK_TOKEN = process.env.SLACK_TOKEN
@@ -136,7 +136,7 @@ if (isDev) {
   app.set('views', 'web/')
   app.use(express.static('web'))
 } else {
-  app.set('views', 'public/static')
+  app.set('views', 'frontend/public/static')
 }
 
 app.engine(
@@ -234,9 +234,6 @@ app.post('/api/event', (req, res) => {
 // Catch all to render index template
 app.get('/', (req, res) => {
   const linkedin = process.env.LINKEDIN || ''
-  console.log(childProcess.execSync("ls",{
-    encoding: "utf8"
-  }))
   return res.render('index', {
     isDev,
     linkedin,
